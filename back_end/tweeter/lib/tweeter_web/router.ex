@@ -2,25 +2,23 @@ defmodule TweeterWeb.Router do
   use TweeterWeb, :router
 
   pipeline :browser do
-    plug :accepts, ["html"]
-    plug :fetch_session
-    plug :fetch_live_flash
-    plug :put_root_layout, html: {TweeterWeb.Layouts, :root}
-    plug :protect_from_forgery
-    plug :put_secure_browser_headers
+    plug(:accepts, ["html"])
+    plug(:fetch_session)
+    plug(:fetch_live_flash)
+    plug(:put_root_layout, html: {TweeterWeb.Layouts, :root})
+    plug(:protect_from_forgery)
+    plug(:put_secure_browser_headers)
   end
 
   pipeline :api do
-    plug :accepts, ["json"]
+    plug(:accepts, ["json"])
   end
 
-  scope "/", TweeterWeb do
-    pipe_through :browser
-    get "/", PageController, :home
+  scope "/api", TweeterWeb do
+    pipe_through(:api)
+    get("/login", AuthController, :log_in)
+    get("/register", AuthController, :register)
   end
-
-
-
 
   # Other scopes may use custom stacks.
   # scope "/api", TweeterWeb do
@@ -37,10 +35,10 @@ defmodule TweeterWeb.Router do
     import Phoenix.LiveDashboard.Router
 
     scope "/dev" do
-      pipe_through :browser
+      pipe_through(:browser)
 
-      live_dashboard "/dashboard", metrics: TweeterWeb.Telemetry
-      forward "/mailbox", Plug.Swoosh.MailboxPreview
+      live_dashboard("/dashboard", metrics: TweeterWeb.Telemetry)
+      forward("/mailbox", Plug.Swoosh.MailboxPreview)
     end
   end
 end
