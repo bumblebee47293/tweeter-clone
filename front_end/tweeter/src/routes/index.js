@@ -4,8 +4,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Profile from '../pages/profile/profile';
 import Explore from '../pages/explore/explore';
 import Bookmarks from '../pages/bookmarks/bookmarks';
-import Login from '../pages/authentication/login/login';
-import Register from '../pages/authentication/register/register';
+import Authentication from '../pages/authentication/authentication'
+
 
 function RoutesPage() {
     return (
@@ -15,8 +15,7 @@ function RoutesPage() {
                 <Route path='/bookmarks' element={<Bookmarks />} />
                 <Route path='/explore' element={<Explore />} />
                 <Route path='/profile' element={<Profile />} />
-                <Route path='/login' element={<Login />}/> 
-                <Route path='/register' element={<Register />}/> 
+                <Route path='/register' element={<Authentication />}/>  
             </Routes>
         </BrowserRouter>
     );

@@ -1,0 +1,56 @@
+.authenticationContainer {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  width: 100%;
+  /* background-color: blue; */
+}
+
+.imageContainer {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* background-color: red; */
+}
+
+.formContainer {
+  width: 50%;
+  height: 100%; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.input {
+  width: 95%;
+  height: 40px;
+  border: 1.3px solid lightgray;
+  outline: none;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  padding-left: 15px;
+  border-radius: 5px;
+}
+
+.inputRow {
+  width: 100%;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+}
+.rowSection {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+.sideImage {
+  width: 50%;
+  height: 50%;
+}
